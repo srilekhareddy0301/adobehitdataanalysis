@@ -1,0 +1,40 @@
+{
+  "name" : "final_hit_revenue",
+  "description" : "",
+  "role" : "arn:aws:iam::836897354715:role/service-role/AWSGlueServiceRole",
+  "executionProperty" : {
+    "maxConcurrentRuns" : 1
+  },
+  "command" : {
+    "name" : "glueetl",
+    "scriptLocation" : "s3://aws-glue-assets-836897354715-ap-south-1/scripts/final_hit_revenue.py",
+    "pythonVersion" : "3"
+  },
+  "defaultArguments" : {
+    "--enable-metrics" : "true",
+    "--enable-spark-ui" : "true",
+    "--spark-event-logs-path" : "s3://aws-glue-assets-836897354715-ap-south-1/sparkHistoryLogs/",
+    "--enable-job-insights" : "true",
+    "--filepath" : "s3://kash3825/Adobe_data/data_C.tsv",
+    "--enable-glue-datacatalog" : "true",
+    "--enable-continuous-cloudwatch-log" : "true",
+    "--job-bookmark-option" : "job-bookmark-disable",
+    "--outputpath" : "s3://kash3825/output/",
+    "--job-language" : "python",
+    "--TempDir" : "s3://aws-glue-assets-836897354715-ap-south-1/temporary/"
+  },
+  "maxRetries" : 0,
+  "allocatedCapacity" : 10,
+  "timeout" : 2880,
+  "maxCapacity" : 10.0,
+  "glueVersion" : "3.0",
+  "numberOfWorkers" : 10,
+  "workerType" : "G.1X",
+  "executionClass" : "STANDARD",
+  "sourceControlDetails" : {
+    "provider" : "AWS_CODE_COMMIT",
+    "repository" : "Adobe_hit_revenue_analysis",
+    "branch" : "main",
+    "folder" : "final_hit_revenue"
+  }
+}
