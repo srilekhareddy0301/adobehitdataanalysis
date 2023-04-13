@@ -47,7 +47,7 @@ To use this project, follow these steps:
 
 10. Test the AWS Glue job in the AWS Management Console to ensure it's working correctly. Go to the AWS Management Console, navigate to the Glue service, and run the Glue job that you updated earlier to analyze revenue data per keyword. Monitor the job's status and check the output to ensure it's producing the expected results.
 
-
+Make sure to replace the placeholder values with the actual values specific to your AWS platform, data locations, and CodeCommit repository. This will ensure that the Glue job runs successfully with the correct configurations for your environment.
 
 
 
