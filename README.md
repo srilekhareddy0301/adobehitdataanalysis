@@ -32,7 +32,7 @@ To use this project, follow these steps:
 
 6. Set up the AWS profile and Git credentials in your local IDE for code development. Configure your local IDE (Integrated Development Environment) to use the AWS profile and Git credentials that you created earlier.
 
-7. Update the parameter arguments in the Glue job script to match your AWS platform and data locations. Modify the following parameters in the `--extra-py-files` argument in the Glue job script:
+7. Update the parameter arguments in the Glue job script to match your AWS platform and data locations. Modify the following parameters in the 'final_hit_revenue.json' script:
    - `roles`: Update with the ARN of the AWS Glue service role that you have defined for your AWS platform.
    - `scriptLocation`: Update with the S3 path where you have stored the Glue job script file.
    - `--spark-event-logs-path`: Update with the S3 path where you want to store the Spark event logs.
