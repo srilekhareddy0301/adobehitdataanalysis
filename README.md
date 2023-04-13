@@ -32,7 +32,7 @@ To use this project, follow these steps:
 
 6. Set up the AWS profile and Git credentials in your local IDE for code development. Configure your local IDE (Integrated Development Environment) to use the AWS profile and Git credentials that you created earlier.
 
-7. Update the parameter arguments in the Glue job script to match your AWS platform and data locations. Modify the following parameters in the 'final_hit_revenue.json' script:
+7. Update the parameters in the 'final_data.json' script to match your AWS platform and data locations. Modify the following parameters in the JSON object:
    - `roles`: Update with the ARN of the AWS Glue service role that you have defined for your AWS platform.
    - `scriptLocation`: Update with the S3 path where you have stored the Glue job script file.
    - `--spark-event-logs-path`: Update with the S3 path where you want to store the Spark event logs.
@@ -41,9 +41,11 @@ To use this project, follow these steps:
    - `--TempDir`: Update with the S3 path where you want to store temporary files.
    - `repository`: Update with the name of your CodeCommit repository.
 
-8. Push the code to the CodeCommit repository using Git commands. Use Git commands from your local IDE or terminal to push the updated Glue job script to the CodeCommit repository.
+8. Save the 'final_data.json' script with the updated parameters.
 
-9. Test the AWS Glue job in the AWS Management Console to ensure it's working correctly. Go to the AWS Management Console, navigate to the Glue service, and run the Glue job that you updated earlier to analyze revenue data per keyword. Monitor the job's status and check the output to ensure it's producing the expected results.
+9. Push the code to the CodeCommit repository using Git commands. Use Git commands from your local IDE or terminal to push the updated Glue job script to the CodeCommit repository.
+
+10. Test the AWS Glue job in the AWS Management Console to ensure it's working correctly. Go to the AWS Management Console, navigate to the Glue service, and run the Glue job that you updated earlier to analyze revenue data per keyword. Monitor the job's status and check the output to ensure it's producing the expected results.
 
 
 
