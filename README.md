@@ -1,7 +1,8 @@
 #Adobe Hit Data Analysis
+
 This project involves analyzing revenue data per keyword from a third-party search engine using AWS Glue.
 
-##Prerequisites
+#Prerequisites
 Before getting started with this project, make sure you have completed the following pre-requisites:
 
 Install AWS CLI on your local system.
@@ -13,7 +14,8 @@ Generate Git credentials for the CodeCommit repository.
 Set up the AWS profile and Git credentials in your local IDE for code development.
 Develop the code for revenue data analysis per keyword and push it to the CodeCommit repository.
 Test the AWS Glue job to ensure it's working correctly.
-##Usage
+
+#Usage
 To use this project, follow these steps:
 
 Install AWS CLI on your local system if you haven't already done so.
