@@ -18,16 +18,34 @@ Before getting started with this project, make sure you have completed the follo
 ## Usage
 To use this project, follow these steps:
 
--	Install AWS CLI on your local system if you haven't already done so: You can download and install AWS CLI from the AWS official documentation based on your operating system.
--	Create an IAM user with appropriate roles and policies for S3, Glue, and CodeCommit in the AWS Management Console: Go to the AWS Management Console, navigate to the IAM service, and create a new IAM user with the necessary permissions for accessing S3, Glue, and CodeCommit services. Make sure to note down the Access Key ID and Secret Access Key for later use.
--	Create an AWS profile using the Access Key ID and Secret Access Key of the IAM user in your local system: Open a terminal or command prompt on your local system and run the aws configure command. Enter the Access Key ID, Secret Access Key, and other required information when prompted to create a new AWS profile. This profile will be used for authentication when interacting with AWS services from your local system.
--	Copy the relevant data files from your local system to an S3 bucket using the AWS CLI: Use the aws s3 command-line interface to upload the relevant data files from your local system to an S3 bucket. For example: aws s3 cp <local_path> s3://<bucket_name>/<s3_path>.
--	Create a CodeCommit repository in the AWS Management Console to store your code: Go to the AWS Management Console, navigate to the CodeCommit service, and create a new CodeCommit repository to store your code. Note down the repository URL for later use.
--	Generate Git credentials for the CodeCommit repository: In the AWS Management Console, go to the CodeCommit repository settings and generate Git credentials (username and password) that will be used for authentication when pushing your code to the repository.
--	Set up the AWS profile and Git credentials in your local IDE for code development: Configure your local IDE (Integrated Development Environment) to use the AWS profile and Git credentials that you created earlier. This will allow you to interact with AWS services and push code to the CodeCommit repository directly from your IDE.
--	Develop the code for revenue data analysis per keyword using AWS Glue: Use AWS Glue, a managed extract, transform, and load (ETL) service provided by AWS, to develop the code for revenue data analysis per keyword. This may involve creating Glue jobs, writing Glue scripts in Python or Scala, and configuring Glue data sources and data targets.
--	Push the code to the CodeCommit repository using Git commands: Use Git commands from your local IDE or terminal to push the developed code to the CodeCommit repository. This may involve creating a local Git repository, adding files to the repository, committing changes, and pushing changes to the remote repository using the Git credentials generated earlier.
--	Test the AWS Glue job in the AWS Management Console to ensure it's working correctly: Go to the AWS Management Console, navigate to the Glue service, and run the Glue job that you developed earlier to analyze revenue data per keyword. Monitor the job's status and check the output to ensure it's producing the expected results.
+## Usage Steps
+
+1. Install AWS CLI on your local system if you haven't already done so. You can download and install AWS CLI from the AWS official documentation based on your operating system.
+
+2. Create an IAM user with appropriate roles and policies for S3, Glue, and CodeCommit in the AWS Management Console. Use the ARN of the AWS Glue service role that you have defined for your AWS platform.
+
+3. Copy the relevant data files from your local system to an S3 bucket using the AWS CLI. For example: `aws s3 cp <local_path> s3://<bucket_name>/<s3_path>`.
+
+4. Create a CodeCommit repository in the AWS Management Console to store your code. Note down the repository URL for later use.
+
+5. Generate Git credentials for the CodeCommit repository. In the AWS Management Console, go to the CodeCommit repository settings and generate Git credentials (username and password) that will be used for authentication when pushing your code to the repository.
+
+6. Set up the AWS profile and Git credentials in your local IDE for code development. Configure your local IDE (Integrated Development Environment) to use the AWS profile and Git credentials that you created earlier.
+
+7. Update the parameter arguments in the Glue job script to match your AWS platform and data locations. Modify the following parameters in the `--extra-py-files` argument in the Glue job script:
+   - `roles`: Update with the ARN of the AWS Glue service role that you have defined for your AWS platform.
+   - `scriptLocation`: Update with the S3 path where you have stored the Glue job script file.
+   - `--spark-event-logs-path`: Update with the S3 path where you want to store the Spark event logs.
+   - `--filepath`: Update with the S3 path of your input data file.
+   - `--outputpath`: Update with the S3 path where you want to store the output data.
+   - `--TempDir`: Update with the S3 path where you want to store temporary files.
+   - `repository`: Update with the name of your CodeCommit repository.
+
+8. Push the code to the CodeCommit repository using Git commands. Use Git commands from your local IDE or terminal to push the updated Glue job script to the CodeCommit repository.
+
+9. Test the AWS Glue job in the AWS Management Console to ensure it's working correctly. Go to the AWS Management Console, navigate to the Glue service, and run the Glue job that you updated earlier to analyze revenue data per keyword. Monitor the job's status and check the output to ensure it's producing the expected results.
+
+
 
 
 
